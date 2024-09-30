@@ -24,4 +24,3 @@ namespace ApiMSCOFFIE.Services
         public async Task EliminarAsync(string id) => await _coleccionCocina.DeleteManyAsync(x => x.Id == id);
     }
 }
-}
