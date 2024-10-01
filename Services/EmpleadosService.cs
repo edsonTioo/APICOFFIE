@@ -36,5 +36,11 @@ namespace ApiMSCOFFIE.Services
         {
             return await _coleccionEmpleados.Find(e => e.Nombre.ToLower().Contains(nombre.ToLower())).ToListAsync();
         }
+
+
+
+
+        public async Task<Empleados?> ObtenerUsuariosAsync(string correo)=> await _coleccionEmpleados.Find(u=> u.Correo == correo).FirstOrDefaultAsync();
+        public async Task CrearUsuarioAsync(Empleados nuevoempleado) => await _coleccionEmpleados.InsertOneAsync(nuevoempleado);
     }
 }
