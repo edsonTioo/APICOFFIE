@@ -23,7 +23,7 @@ namespace ApiMSCOFFIE.Controllers
             _configuration = configuration;
         }
         [HttpPost("login")]
-        public async Task<IActionResult> login([FromBody] Empleados empleados)
+        public async Task<IActionResult> login([FromBody] User empleados)
         {
             var existingUser = await _servicio.ObtenerUsuariosAsync(empleados.Correo);
             if (existingUser == null || existingUser.Password != empleados.Password) { return Unauthorized(); }

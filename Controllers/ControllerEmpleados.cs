@@ -1,6 +1,7 @@
 ﻿
 using ApiMSCOFFIE.Models;
 using ApiMSCOFFIE.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ApiMSCOFFIE.Controllers
@@ -11,10 +12,11 @@ namespace ApiMSCOFFIE.Controllers
     {
         private readonly EmpleadosService _serviceEmpleados;
         public ControllerEmpleados(EmpleadosService serviceEmpleados) => _serviceEmpleados = serviceEmpleados;
-
+        [Authorize]
         [HttpGet]
         public async Task<List<Empleados>> Obtener() => await _serviceEmpleados.ObtenerAsync();
 
+        [Authorize]
         [HttpGet("{id:length(24)}")]
         public async Task<ActionResult<Empleados>> Obtener(string id)
         {
@@ -25,12 +27,14 @@ namespace ApiMSCOFFIE.Controllers
             }
             return empleados;
         }
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> Crear(Empleados nuevoempleados)
         {
             await _serviceEmpleados.CrearAsync(nuevoempleados);
             return CreatedAtAction(nameof(Obtener), new { id = nuevoempleados.Id }, nuevoempleados);
         }
+        [Authorize]
         [HttpPut("{id:length(24)}")]
         public async Task<ActionResult> Actualizar(string id, Empleados empleadosAtualizado)
         {
@@ -40,6 +44,7 @@ namespace ApiMSCOFFIE.Controllers
             await _serviceEmpleados.ActualizarAsync(id, empleadosAtualizado);
             return NoContent();
         }
+        [Authorize]
         [HttpDelete("{id:length(24)}")]
         public async Task<IActionResult>Eliminar(string id)
         {
@@ -48,6 +53,7 @@ namespace ApiMSCOFFIE.Controllers
             await _serviceEmpleados.EliminarAsync(id);
             return NoContent();
         }
+        [Authorize]
         [HttpGet("buscar/{nombre}")]
         public async Task<ActionResult<List<Empleados>>> BuscarNombre(string nombre)
         {

@@ -39,7 +39,7 @@ namespace ApiMSCOFFIE.Services
 
 
 
-
+        //Autenticacion
         public async Task<Empleados?> ObtenerUsuariosAsync(string correo)=> await _coleccionEmpleados.Find(u=> u.Correo == correo).FirstOrDefaultAsync();
         public async Task CrearUsuarioAsync(Empleados nuevoempleado) => await _coleccionEmpleados.InsertOneAsync(nuevoempleado);
     }
