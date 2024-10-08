@@ -9,5 +9,6 @@
         public string ColeccionClientes { get; set; } = null!;
         public string ColeccionMesas { get; set; } = null!;
         public string ColeccionCocina { get; set; } = null!;
+        public string ColeccionInventario { get; set; } = null!;
     }
 }
