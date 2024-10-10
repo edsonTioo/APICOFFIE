@@ -40,6 +40,7 @@ var app = builder.Build();
 
 // Configuración de los middlewares
 app.UseAuthentication();
+app.UseCors("AllowAllOrigins");
 app.UseAuthorization();
 
 // Configuración del pipeline de solicitudes HTTP
@@ -49,7 +50,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 
 app.MapControllers();
 

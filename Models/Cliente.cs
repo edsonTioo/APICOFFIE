@@ -19,7 +19,7 @@ namespace ApiMSCOFFIE.Models
         public string Direccion { get; set; } = null!;
 
         [BsonElement("Estado")]
-        public int Estado { get; set; }
+        public string Estado { get; set; }
 
         [BsonElement("Telefono")]
         public int Telefono { get; set; }
