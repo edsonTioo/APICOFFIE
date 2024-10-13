@@ -19,7 +19,7 @@ namespace ApiMSCOFFIE.Models
         public string Correo { get; set; } = null!;
 
         [BsonElement("Estado")]
-        public int Estado { get; set; }
+        public string Estado { get; set; }
 
         [BsonElement("Password")]
         public string Password { get; set; }= null!;
@@ -29,7 +29,7 @@ namespace ApiMSCOFFIE.Models
 
 
         [BsonElement("Rol")]
-        public int Rol { get; set; }
+        public string Rol { get; set; }
 
         [BsonElement("Cedula")]
         public string Cedula { get; set; } = null!;
