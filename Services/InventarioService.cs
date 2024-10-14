@@ -2,6 +2,7 @@
 using ApiMSCOFFIE.Models;
 using ApiMSCOFFIE.Services;
 using Microsoft.Extensions.Options;
+using MongoDB.Bson;
 using MongoDB.Driver;
 
 namespace ApiMSCOFFIE.Services
@@ -22,6 +23,12 @@ namespace ApiMSCOFFIE.Services
         //crear inventario
         public async Task CrearAsync(Inventario nuevoinventario)
         {
+            // Asignar un ObjectId a cada producto si no tiene uno
+            foreach (var inventario in nuevoinventario.Nombreinv)
+            {
+                nuevoinventario.Id = ObjectId.GenerateNewId().ToString();
+            }
+
             await _collecioninventario.InsertOneAsync(nuevoinventario);
         }
         //Actualizar inventario

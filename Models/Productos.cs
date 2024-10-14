@@ -20,7 +20,7 @@ namespace ApiMSCOFFIE.Models
         public int PrecioVenta { get; set; }
 
         [BsonElement("Foto")]
-        public string Foto { get; set; }
+        public byte Foto { get; set; }
 
         [BsonElement("Categoria")]
         public string Categoria { get; set; } = null!;

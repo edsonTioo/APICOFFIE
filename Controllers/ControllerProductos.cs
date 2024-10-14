@@ -30,6 +30,8 @@ namespace ApiMSCOFFIE.Controllers
             await _serviceProducto.CrearAsync(nuevoproducto);
             return CreatedAtAction(nameof(Obtener), new { id = nuevoproducto.Id }, nuevoproducto);
         }
+
+
         [HttpPut("{id:length(24)}")]
         public async Task<ActionResult> Actualizar(string id, Productos productoActualizado)
         {

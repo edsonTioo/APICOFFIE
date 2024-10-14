@@ -12,13 +12,6 @@ namespace ApiMSCOFFIE.Controllers
         private readonly InventarioService _inventarioService;
         public ControllerInventario(InventarioService servicioinv) => _inventarioService = servicioinv;
 
-
-        [HttpPost]
-        public async Task<IActionResult> Crear(Inventario nuevoinventario)
-        {
-            await _inventarioService.CrearAsync(nuevoinventario);
-            return CreatedAtAction(nameof(Obtener), new { id = nuevoinventario.Id }, nuevoinventario);
-        }
         [HttpGet]
         public async Task<List<Inventario>> Obtener() => await _inventarioService.ObtenerAsync();
 
@@ -32,7 +25,15 @@ namespace ApiMSCOFFIE.Controllers
             }
             return inventario;
         }
- 
+
+        [HttpPost]
+        public async Task<IActionResult> Crear(Inventario nuevoinventario)
+        {
+            await _inventarioService.CrearAsync(nuevoinventario);
+            return CreatedAtAction(nameof(Obtener), new { id = nuevoinventario.Id }, nuevoinventario);
+        }
+
+
         [HttpDelete("{id:length(24)}")]
         public async Task<IActionResult> Eliminar(string id)
         {

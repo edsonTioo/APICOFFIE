@@ -11,6 +11,8 @@ builder.Services.Configure<MSCOFFIEDBSettings>(builder.Configuration.GetSection(
 builder.Services.AddSingleton<EmpleadosService>();
 builder.Services.AddSingleton<ProductosService>();
 builder.Services.AddSingleton<ClienteService>();
+builder.Services.AddSingleton<InventarioService>();
+
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
