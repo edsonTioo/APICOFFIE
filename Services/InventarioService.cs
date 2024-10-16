@@ -24,7 +24,7 @@ namespace ApiMSCOFFIE.Services
         public async Task CrearAsync(Inventario nuevoinventario)
         {
             // Asignar un ObjectId a cada producto si no tiene uno
-            foreach (var inventario in nuevoinventario.Nombreinv)
+            foreach (var inventario in nuevoinventario.Nombre)
             {
                 nuevoinventario.Id = ObjectId.GenerateNewId().ToString();
             }
@@ -38,7 +38,7 @@ namespace ApiMSCOFFIE.Services
         //Buscar prodinventario
         public async Task<List<Inventario>> buscarpornombre(string nombre)
         {
-            return await _collecioninventario.Find(i => i.Nombreinv.ToLower().Contains(nombre.ToLower())).ToListAsync();
+            return await _collecioninventario.Find(i => i.Nombre.ToLower().Contains(nombre.ToLower())).ToListAsync();
         }
     }
 }

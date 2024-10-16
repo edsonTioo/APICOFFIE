@@ -11,10 +11,10 @@ namespace ApiMSCOFFIE.Models
         public string? Id { get; set; }
 
         [BsonElement("Nombre")]
-        public string Nombreinv { get; set; } = null!;
+        public string Nombre { get; set; } = null!;
 
         [BsonElement("Cantidad")]
-        public string Cantidadinv { get; set; }=null!;
+        public int Cantidad { get; set; }
 
         [BsonElement("Descripcion")]
         public string Descripcion { get; set; } = null!;
