@@ -110,5 +110,8 @@ namespace ApiMSCOFFIE.Controllers
             await _serviceMesas.EliminarPedidoAsync(idMesa, indicePedido);
             return NoContent();
         }
+
+
+ 
     }
 }

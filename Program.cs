@@ -12,6 +12,10 @@ builder.Services.AddSingleton<EmpleadosService>();
 builder.Services.AddSingleton<ProductosService>();
 builder.Services.AddSingleton<InventarioService>();
 builder.Services.AddSingleton<ClienteService>();
+builder.Services.AddSingleton<InventarioService>();
+builder.Services.AddSingleton<MesasServicio>();
+builder.Services.AddSingleton<ReporteServicio>();
+
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

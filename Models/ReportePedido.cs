@@ -2,7 +2,7 @@
 
 namespace ApiMSCOFFIE.Models
 {
-    public class Pedido
+    public class ReportePedido
     {
         [BsonElement("Producto")]
         public string Producto { get; set; }
@@ -15,6 +15,5 @@ namespace ApiMSCOFFIE.Models
 
         [BsonElement("Subtotal")]
         public decimal Subtotal { get; set; }
-       
     }
 }

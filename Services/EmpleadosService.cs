@@ -36,11 +36,24 @@ namespace ApiMSCOFFIE.Services
         {
             return await _coleccionEmpleados.Find(e => e.Nombre.ToLower().Contains(nombre.ToLower())).ToListAsync();
         }
+        public async Task<bool> ActualizarPasswordPorCorreoAsync(string correo, string nuevaPassword)
+        {
+            // Filtro para buscar el cliente por correo
+            var filtro = Builders<Empleados>.Filter.Eq(c => c.Correo, correo);
 
+            // Actualización solo del campo Password
+            var actualizacion = Builders<Empleados>.Update.Set(c => c.Password, nuevaPassword);
+
+            // Realiza la actualización
+            var resultado = await _coleccionEmpleados.UpdateOneAsync(filtro, actualizacion);
+
+            // Devuelve true si se modificó un documento, false en caso contrario
+            return resultado.ModifiedCount > 0;
+        }
 
 
         //Autenticacion
-        public async Task<Empleados?> ObtenerUsuariosAsync(string correo)=> await _coleccionEmpleados.Find(u=> u.Correo == correo).FirstOrDefaultAsync();
-        public async Task CrearUsuarioAsync(Empleados nuevoempleado) => await _coleccionEmpleados.InsertOneAsync(nuevoempleado);
+        public async Task<Empleados?> ObtenerEmpleadoAsync(string correo)=> await _coleccionEmpleados.Find(u=> u.Correo == correo).FirstOrDefaultAsync();
+        public async Task CrearEmpleadoAsync(Empleados nuevoempleado) => await _coleccionEmpleados.InsertOneAsync(nuevoempleado);
     }
 }

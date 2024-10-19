@@ -72,5 +72,12 @@ namespace ApiMSCOFFIE.Services
             mesa.Pedidos.RemoveAt(indicePedido);
             await ActualizarAsync(idMesa, mesa);
         }
+
+        // Obtener todos los pedidos de una mesa
+        public async Task<List<Pedido>> ObtenerPedidosAsync(string idMesa)
+        {
+            var mesa = await ObtenerAsync(idMesa);
+            return mesa?.Pedidos ?? new List<Pedido>();
+        }
     }
 }
