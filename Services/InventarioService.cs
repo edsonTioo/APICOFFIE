@@ -31,7 +31,7 @@ namespace ApiMSCOFFIE.Services
         //Buscar prodinventario
         public async Task<List<Inventario>> buscarpornombre(string nombre)
         {
-            return await _collecioninventario.Find(i => i.Nombreinv.ToLower().Contains(nombre.ToLower())).ToListAsync();
+            return await _collecioninventario.Find(i => i.Nombre.ToLower().Contains(nombre.ToLower())).ToListAsync();
         }
     }
 }

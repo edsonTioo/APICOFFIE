@@ -10,6 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.Configure<MSCOFFIEDBSettings>(builder.Configuration.GetSection("ConfiguracionBaseDatos"));
 builder.Services.AddSingleton<EmpleadosService>();
 builder.Services.AddSingleton<ProductosService>();
+builder.Services.AddSingleton<InventarioService>();
 builder.Services.AddSingleton<ClienteService>();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();

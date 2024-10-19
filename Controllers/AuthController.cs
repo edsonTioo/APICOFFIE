@@ -26,7 +26,8 @@ namespace ApiMSCOFFIE.Controllers
         public async Task<IActionResult> login([FromBody] User empleados)
         {
             var existingUser = await _servicio.ObtenerUsuariosAsync(empleados.Correo);
-            if (existingUser == null || existingUser.Password != empleados.Password) { return Unauthorized(); }
+            if (existingUser == null || existingUser.Password != empleados.Password) 
+            { return Unauthorized(); }
             var token = GenerateJwtToken(existingUser.Correo);
             return Ok(new {Token = token});
         }
